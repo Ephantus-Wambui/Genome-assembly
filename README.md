@@ -30,4 +30,17 @@ This read me assumes familiriaty with Linux commands, and you have already insta
  ```
   trimmomatic PE -threads 4 raw_data/R1.fastq.gz R2.fastq.gz raw_data/R1_pair.fastq R1_unpair.fastq R2_pair.fastq R2_unpair.fastq ILLUMINACLIP:/path to our adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:70
   ```
-  After trimming you can view the result of the trimmed data, by using the 
+  After trimming you can view the result of the trimmed data, by using the fastqc command.
+  
+  4. Next after trimming we need to map our reads to our reference genome.
+ To achieve this we use the Burrow-Wheeler Aligner Maximal Exact Match algorithm or bwa mem in short, to map our trimmed fastq files against our reference Sars-CoV-2 genome. The output is then piped into samtools as input to sort the alignments, which are then output as bam files.
+ 
+ ```
+  bwa mem -t 4 reference_genome.fasta *R1_pair.fastq *R2_pair.fastq | samtools sort | samtools view -F 4 -o *.sorted.bam
+  ```
+  
+  5. Removing primers
+  In this step we will use ivar, which is a computational package that contains functions broadly useful for viral amplicon-based sequencing. This tools is used to remove primers from our alignment map.
+  ```
+    ivar trim -e *.sorted.bam -b ARTIC-V3.bed -p *.sorted.bam.primer.trim
+   ```
