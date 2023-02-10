@@ -44,3 +44,17 @@ This read me assumes familiriaty with Linux commands, and you have already insta
   ```
     ivar trim -e *.sorted.bam -b ARTIC-V3.bed -p *.sorted.bam.primer.trim
    ```
+   
+   6. Sorting bams
+   Before calling our consensus sequences, we have to sort our bams. It is achieved by using this command;
+   ```
+    samtools sort *.primertrim.bam -o *.primertrim.bam.sorted
+   ```
+   
+   7. Calling the consensus sequence
+   Finally we create our consensus genome by using samtools. Samtools creates the read pileups which ivar uses to call consensus at a minimum depth quality of 10.
+   ```
+    samtools mpileup -A -d 1000 -B -Q 0 --reference reference_genome.fasta *.primertrim.bam.sorted | ivar consensus -p *.consensus -n N -m 10
+   ```
+   
+   Note after building your consensus genome. You can use nextclade to Nexclade to classify your genome according to clades and pango lineages, as well as catalogue the nucleotide and amino acid mutations in your consensus genome compared to your reference genome.
