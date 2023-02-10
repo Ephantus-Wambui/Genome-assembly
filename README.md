@@ -20,10 +20,10 @@ This read me assumes familiriaty with Linux commands, and you have already insta
   ```
   
   2. First let us view the quality of our data. We do this by using the command
-    ```
+   ```
       fastqc *fastq.gz
-    ```
-   This creates a html file that can you view it by opening it to the browser. Example of such result can be seen down below.
+   ```
+   This creates a html file that you can view it by opening it to the browser. Example of such result can be seen down below.
  ![FastQC report](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc.png)
  
  3. After determining the quality of our sequences, next we proceed to trimming adapters and bad sequences (sequences that have a score of less than 30), and we remain with clean data that can undergo further down stream processes. Since our data is from illumina sequencer, we will use trimmomatic tool to cut illumina adapters together with other bad sequences.
