@@ -12,7 +12,8 @@ For identification of various clades, and variants we will use actual raw datase
 
 You can download the dataset, using the wget command on your terminal. The dataset is in fastq format, and you can download it by using the following commands.
 
-```wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR114/048/SRR11479148/SRR11479148_2.fastq.gz
+```
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR114/048/SRR11479148/SRR11479148_2.fastq.gz
 wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR114/048/SRR11479148/SRR11479148_1.fastq.gz
 wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR114/050/SRR11479150/SRR11479150_2.fastq.gz
 wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR114/050/SRR11479150/SRR11479150_1.fastq.gz
@@ -23,7 +24,8 @@ wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/071/SRR13495171/SRR13495171_1
 wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR211/056/SRR21139656/SRR21139656_2.fastq.gz
 wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR211/056/SRR21139656/SRR21139656_1.fastq.gz
 wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR211/089/SRR21139689/SRR21139689_1.fastq.gz
-wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR211/089/SRR21139689/SRR21139689_2.fastq.gz```
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR211/089/SRR21139689/SRR21139689_2.fastq.gz
+```
 
 # Prerequisite
 
@@ -35,7 +37,7 @@ Install Miniconda
   bash Miniconda3-latest-Linux-x86_64.sh
   ```
   
-Create a conda environment
+Then create a conda environment called cov-analysis
   ```
   conda create -n cov-analysis
   ```
