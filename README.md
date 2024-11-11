@@ -102,7 +102,7 @@ bwa mem -t 4 reference_genome.fasta *R1_pair.fastq *R2_pair.fastq | samtools sor
 5. Removing primers
 In this step we will use ivar, which is a computational package that contains functions broadly useful for viral amplicon-based sequencing. This tools is used to remove primers from our alignment map.
 ```
-ivar trim -e *.sorted.bam -b ARTIC-V3.bed -p *.sorted.bam.primer.trim
+ivar trim -e -i *.sorted.bam -b ARTIC-V3.bed -p *.sorted.bam.primer.trim
 ```
 
 6. Sorting bams
